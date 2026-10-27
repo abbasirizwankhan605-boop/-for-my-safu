@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Safu ♡</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;font-family:Arial,sans-serif;
+ color:#713b58;text-align:center;overflow-x:hidden;
+ background:linear-gradient(135deg,#ffe2ee,#f4ddff,#fff0f5);
+}
+.card{
+ width:min(90%,430px);margin:55px auto;padding:30px 22px;
+ background:#ffffffbd;border:1px solid #ffffff;
+ border-radius:28px;box-shadow:0 15px 50px #bd719533;
+ position:relative;z-index:2;animation:appear 1s ease;
+}
+h1{font-size:35px;margin:12px 0;color:#d44f89}
+p{line-height:1.8;font-size:16px}
+.heart{font-size:55px;animation:beat 1s infinite}
+button{
+ border:0;border-radius:30px;padding:14px 22px;
+ background:#e65c98;color:white;font-size:16px;
+ cursor:pointer;box-shadow:0 6px 16px #e65c9844;
+ transition:.25s;
+}
+button:active{transform:scale(.95)}
+button:hover{background:#ca4380}
+#letter{
+ display:none;margin-top:24px;padding:18px;
+ border-radius:18px;background:#fff0f7;
+ animation:appear .7s ease;
+}
+#letter.show{display:block}
+.signature{color:#d44f89;font-weight:bold;font-size:19px}
+.float{
+ position:fixed;bottom:-40px;z-index:1;pointer-events:none;
+ animation:rise linear forwards;
+}
+footer{font-size:12px;opacity:.7;margin-top:22px}
+@keyframes beat{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.18)}
+}
+@keyframes appear{
+ from{opacity:0;transform:translateY(18px)}
+ to{opacity:1;transform:translateY(0)}
+}
+@keyframes rise{
+ to{transform:translateY(-115vh) rotate(35deg);opacity:0}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+ <div class="heart">💗</div>
+ <p>A little surprise, made with love...</p>
+ <h1>For My Safu ♡</h1>
+ <p>
+   Some people make ordinary days feel special.
+   <br>
+   And you are one of those people. 🌷
+ </p>
+
+ <button onclick="openLetter()" id="btn">
+   Open Your Surprise 💌
+ </button>
+
+ <div id="letter">
+  <h2>Dear Safu 🥹💖</h2>
+  <p>
+   Tum meri life ka ek bahut special part ho.
+   Tumhari smile, tumhari baatein aur tumhara
+   cute sa gussa — sab mere liye precious hai. 💕
+  </p>
+  <p>
+   Main chahta hoon ki tum hamesha khush raho,
+   apne dreams poore karo aur kabhi na bhoolo
+   ki tum kitni special ho.
+  </p>
+  <p>
+   Har din perfect nahi hota, lekin main chahta hoon
+   ki hum ek doosre ko samjhein, support karein
+   aur saath mein bahut saari beautiful memories banayein. 🌸
+  </p>
+  <div class="signature">Always your person ♡</div>
+  <div style="font-size:30px;margin-top:12px">🫶🏻💗🌷</div>
+ </div>
+
+ <footer>Made with ♡, especially for Safu</footer>
+</div>
+
+<script>
+function openLetter(){
+ const letter=document.getElementById('letter');
+ letter.classList.add('show');
+ document.getElementById('btn').textContent='A little more love 💖';
+ burst();
+}
+function burst(){
+ for(let i=0;i<24;i++){
+  const h=document.createElement('span');
+  h.className='float';
+  h.textContent=['💗','💕','💖','♡','🌸'][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(16+Math.random()*22)+'px';
+  h.style.animationDuration=(3+Math.random()*4)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7500);
+ }
+}
+setInterval(()=>{
+ const h=document.createElement('span');
+ h.className='float';
+ h.textContent=['♡','💗','💕'][Math.floor(Math.random()*3)];
+ h.style.left=Math.random()*100+'vw';
+ h.style.fontSize=(15+Math.random()*18)+'px';
+ h.style.animationDuration=(5+Math.random()*4)+'s';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),9500);
+},700);
+</script>
+</body>
+</html>
